@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="styles.css?version=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
     <title>RDGT++</title>
   </head>
   <body>
@@ -11,9 +11,8 @@
       <div class="container">
         <nav>
           <ul>
-            
             <li><a href="index.html">Home</a></li>
-            <li><img src="\web\logo.png" width="95" height="45" class="logo"></li>
+            <li><img src="{{ url_for('static', filename='logo.png') }}" width="95" height="45" class="logo" /></li>
             <li><a href="projects.html">Output</a></li>
           </ul>
         </nav>
@@ -21,29 +20,27 @@
     </header>
 
     <div class="projects-container">
-        <div class="project1">
-            <a  href="" target="_blank">
-                <p> <strong class="proj-title">Click Here to Upload Bot File</strong> </p>
-            </a>
-         </div>
+      <div class="project1">
+        <a href="" target="_blank">
+          <p><strong class="proj-title">Click Here to Upload Bot File</strong></p>
+        </a>
+      </div>
 
-         <div class="project2">
-            <a  href="" target="_blank">
-                <p> <strong class="proj-title">Click Here to Upload Graph File</strong> </p>
-            </a>
-         </div>
-      
+      <div class="project2">
+        <a href="" target="_blank">
+          <p><strong class="proj-title">Click Here to Upload Graph File</strong></p>
+        </a>
+      </div>
     </div>
 
     <div class="generate-output">
-        <button class="generate-btn"type="button">Generate Output</button>
-     </div>
+      <button class="generate-btn" type="button">Generate Output</button>
+    </div>
 
     <div class="github-link-card">
       <div class="link-card">
-        <p><a href="https://github.com/GAchuzia/rgdt-plus-plus" target="_blank">Github  Repo</a></p>
+        <p><a href="https://github.com/GAchuzia/rgdt-plus-plus" target="_blank">Github Repo</a></p>
       </div>
     </div>
-    
   </body>
 </html>
