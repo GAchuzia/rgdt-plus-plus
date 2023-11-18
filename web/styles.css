@@ -86,3 +86,7 @@ nav ul li a:hover {
     padding: 2%;
     margin-right: 20px;
 }
+ 
+.card1 p{
+    justify-content: center;
+}
