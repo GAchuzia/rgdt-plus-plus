@@ -2,8 +2,10 @@ from dataclasses import dataclass
 from typing import Self, TypeAlias, Any
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
+import math
 
 JSON: TypeAlias = dict[str, Any]
+EARTH_RADIUS: float = 6371  # In km
 
 
 @dataclass
@@ -51,17 +53,31 @@ class Bot:
 
 
 @dataclass
+class Ways:
+    id: int
+    nodes: tuple[int, int]
+    cost: float
+
+    @classmethod
+    def from_xml(cls, data: Element) -> Self:
+        nodes = [int(node.text) for node in data.findall("node")]  # type: ignore
+
+        return cls(id=data.get("id"), nodes=tuple(nodes), cost=0)
+
+
+@dataclass
 class Node:
     """Represents a node in the simulation."""
 
     id: int
     lat: float
     long: float
+    ways: list[Ways]
 
     @classmethod
-    def from_xml(cls, node: Element) -> Self:
-        lat = node.find("lat")
-        long = node.find("lon")
+    def from_xml(cls, data: Element) -> Self:
+        lat = data.find("lat")
+        long = data.find("lon")
 
         if lat is None:
             raise ValueError("No latitude node found.")
@@ -70,7 +86,16 @@ class Node:
             raise ValueError("No longitude node found.")
 
         return cls(
-            id=node.get("id"),
+            id=data.get("id"),
             lat=float(lat.text),  # type:ignore
             long=float(long.text),  # type:ignore
+            ways=[],
         )
+
+
+def haversine_dist(n1: Node, n2: Node) -> float:
+    """Calculates the distance between two nodes."""
+    firsts2 = math.sin((math.radians(n2.lat) - math.radians(n1.lat)) / 2) ** 2
+    seconds2 = math.sin((math.radians(n2.long) - math.radians(n1.long)) / 2) ** 2
+    cosproduct = math.cos(math.radians(n1.lat)) * math.cos(math.radians(n2.lat))
+    return 2 * EARTH_RADIUS * math.asin(math.sqrt(firsts2 + cosproduct * seconds2))

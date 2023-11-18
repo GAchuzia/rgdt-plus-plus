@@ -7,10 +7,9 @@ def main():
     args = vars(parser.parse_args())
     print(args)
 
+    # Get scenario
     if args.get("subcmd") == "term":
         Scenario.from_name(args["scenario"])
-
-    # Get scenario
 
 
 if __name__ == "__main__":
