@@ -1,35 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
-</head>
-
-
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/output">Output</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  </head>
+  <header>
     <div class="container">
-            <ul> 
-                <li>Total Distance Travelled: </li>
-                <li>End Time: </li>
-                <li>Number of Handoffs of Packages: </li>
-            </ul>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><img src="{{ url_for('static', filename='logo.png') }}" width="95" height="45" class="logo" /></li>
+          <li><a href="/output">Output</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <body>
+    <div class="container">
+      <ul>
+        <li>Total Distance Travelled:</li>
+        <li>End Time:</li>
+        <li>Number of Handoffs of Packages: 0</li>
+      </ul>
     </div>
 
     <div class="button-card">
-        <button class="btn"><i class="fa fa-download"></i> Download Output</button>
+      <button class="btn"><i class="fa fa-download"></i> Download Output</button>
     </div>
-
-</body>
-
+  </body>
 </html>
