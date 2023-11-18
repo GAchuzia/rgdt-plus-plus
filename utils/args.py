@@ -7,10 +7,8 @@ parser = argparse.ArgumentParser(
     epilog="This program is licensed under the MIT license.",
 )
 
-subparsers = parser.add_subparsers()
-term = subparsers.add_parser(
-    "term", description="Command for running utility in the command line interface."
-)
+subparsers = parser.add_subparsers(dest="subcmd")
+term = subparsers.add_parser("term", description="Command for running utility in the command line interface.")
 
 # Terminal commands
 
