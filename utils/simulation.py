@@ -156,12 +156,13 @@ class Bot:
     carrying: list[Package]
     accumulated_cost: float
     num_deliveries: int
-    prev_step: int = 0
+    prev_step: int
 
     @classmethod
     def from_json(cls, data: JSON) -> Self:
         return cls(
-            location=data["location"], capacity=data["capacity"], carrying=[], accumulated_cost=0, num_deliveries=0
+            location=data["location"], capacity=data["capacity"], carrying=[], accumulated_cost=0, num_deliveries=0,
+            prev_step=data["location"]
         )
 
     def calculate_destination(self, scenario: Scenario) -> int:
@@ -222,11 +223,11 @@ class Bot:
             else:
                 adjacent = way.nodes[0]
 
-            if distances[adjacent].distance < candidate[0]:
+            if distances[adjacent].distance < candidate[0] and adjacent != self.prev_step:
                 candidate = (distances[adjacent].distance, adjacent, way)
 
         # Found ideal step
-        print(f"Stepped from {self.location} to {candidate[1]} with cost {candidate[2]}")
+        self.prev_step = self.location
         self.accumulated_cost += candidate[2].cost
         self.location = candidate[1]
 
@@ -283,8 +284,7 @@ class Scenario:
     def complete(self) -> bool:
         """Returns true when all packages are delivered."""
         delivered_status = [pkg.state == PackageState.DELIVERED for pkg in self.packages]
-        print([pkg if pkg.state != PackageState.DELIVERED else None for pkg in self.packages])
-        print(f"Packages remaining: {len(self.packages) - sum(delivered_status)}")
+        print(f"Packages remaining {len(self.packages) - sum(delivered_status)}")
         return all(delivered_status)
 
 

@@ -1,12 +1,18 @@
 Bot 0: 
-	 Total Running Time: 2.31 
-	 Number of Deliveries: 10 
-	 Total Distance Travelled: 79.01Bot 0: 
-	 Total Running Time: 1.40 
-	 Number of Deliveries: 1 
-	 Total Distance Travelled: 54.74Bot 0: 
-	 Total Running Time: 3.00 
+	 Total Running Time: 13.97 
+	 Number of Deliveries: 2 
+	 Total Distance Travelled: 556.29Bot 0: 
+	 Total Running Time: 12.81 
+	 Number of Deliveries: 11 
+	 Total Distance Travelled: 497.90Bot 0: 
+	 Total Running Time: 13.71 
 	 Number of Deliveries: 9 
-	 Total Distance Travelled: 107.98Summary: 
-	 Total Distance: 241.73, 
-	 Total End Time: 2023-11-18 09:00:00
+	 Total Distance Travelled: 536.24Bot 0: 
+	 Total Running Time: 13.57 
+	 Number of Deliveries: 9 
+	 Total Distance Travelled: 530.69Bot 0: 
+	 Total Running Time: 14.24 
+	 Number of Deliveries: 4 
+	 Total Distance Travelled: 564.18Summary: 
+	 Total Distance: 2685.30, 
+	 Total End Time: 2023-11-18 21:00:00

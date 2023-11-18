@@ -37,7 +37,6 @@ def main():
         while not scenario.complete():
             for bot in scenario.bots:
                 destination_node = bot.calculate_destination(scenario)
-                print(destination_node)
                 bot.step_towards(destination_node, scenario)
 
         print_output(scenario)
