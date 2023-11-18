@@ -4,6 +4,10 @@
 
 Introducing *ReallyGoodDeliveryTechnologies Ltd*'s blazingly fast delivery system software for the C-ENG-C 2023 Programming Competition.
 
+## The Challenge
+
+*ReallyGoodDeliveryTechnologies Ltd* needs an application that provides routing for their delivery vehicles. Using some tests provided by the company, create delivery bots that will deliver packages to customers in record time (and provide text files to backup your stats).
+
 ## Authors
 
 - Grant Achuzia
