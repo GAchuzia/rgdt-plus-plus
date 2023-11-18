@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
     <title>RDGT++</title>
   </head>
   <body>
@@ -27,9 +28,9 @@
       </div>
 
       <div class="project2">
-        <a href="" target="_blank">
-          <p><strong class="proj-title">Click Here to Upload Graph File</strong></p>
-        </a>
+        <p><strong class="proj-title">Click Here to Upload Graph File</strong></p>
+        <input type="file" id="uploadFile" />
+        <button onClick="upload_file()">Submit</button>
       </div>
     </div>
 
