@@ -1,0 +1,646 @@
+{
+    "bots": [
+        {
+            "location": 294,
+            "capacity": 28
+        },
+        {
+            "location": 230,
+            "capacity": 20
+        },
+        {
+            "location": 225,
+            "capacity": 20
+        },
+        {
+            "location": 225,
+            "capacity": 48
+        },
+        {
+            "location": 436,
+            "capacity": 37
+        },
+        {
+            "location": 337,
+            "capacity": 23
+        },
+        {
+            "location": 73,
+            "capacity": 24
+        },
+        {
+            "location": 38,
+            "capacity": 38
+        },
+        {
+            "location": 12,
+            "capacity": 42
+        },
+        {
+            "location": 491,
+            "capacity": 49
+        }
+    ],
+    "packages": [
+        {
+            "source": 134,
+            "destination": 423
+        },
+        {
+            "source": 11,
+            "destination": 13
+        },
+        {
+            "source": 290,
+            "destination": 345
+        },
+        {
+            "source": 464,
+            "destination": 145
+        },
+        {
+            "source": 11,
+            "destination": 121
+        },
+        {
+            "source": 339,
+            "destination": 335
+        },
+        {
+            "source": 133,
+            "destination": 120
+        },
+        {
+            "source": 20,
+            "destination": 454
+        },
+        {
+            "source": 20,
+            "destination": 245
+        },
+        {
+            "source": 98,
+            "destination": 94
+        },
+        {
+            "source": 290,
+            "destination": 171
+        },
+        {
+            "source": 203,
+            "destination": 424
+        },
+        {
+            "source": 203,
+            "destination": 71
+        },
+        {
+            "source": 403,
+            "destination": 276
+        },
+        {
+            "source": 203,
+            "destination": 108
+        },
+        {
+            "source": 464,
+            "destination": 265
+        },
+        {
+            "source": 339,
+            "destination": 408
+        },
+        {
+            "source": 403,
+            "destination": 93
+        },
+        {
+            "source": 134,
+            "destination": 396
+        },
+        {
+            "source": 464,
+            "destination": 290
+        },
+        {
+            "source": 134,
+            "destination": 226
+        },
+        {
+            "source": 339,
+            "destination": 495
+        },
+        {
+            "source": 271,
+            "destination": 143
+        },
+        {
+            "source": 328,
+            "destination": 38
+        },
+        {
+            "source": 11,
+            "destination": 444
+        },
+        {
+            "source": 203,
+            "destination": 114
+        },
+        {
+            "source": 290,
+            "destination": 463
+        },
+        {
+            "source": 11,
+            "destination": 250
+        },
+        {
+            "source": 339,
+            "destination": 109
+        },
+        {
+            "source": 271,
+            "destination": 477
+        },
+        {
+            "source": 333,
+            "destination": 29
+        },
+        {
+            "source": 134,
+            "destination": 284
+        },
+        {
+            "source": 134,
+            "destination": 93
+        },
+        {
+            "source": 20,
+            "destination": 289
+        },
+        {
+            "source": 333,
+            "destination": 468
+        },
+        {
+            "source": 271,
+            "destination": 94
+        },
+        {
+            "source": 11,
+            "destination": 319
+        },
+        {
+            "source": 333,
+            "destination": 18
+        },
+        {
+            "source": 11,
+            "destination": 238
+        },
+        {
+            "source": 464,
+            "destination": 246
+        },
+        {
+            "source": 290,
+            "destination": 301
+        },
+        {
+            "source": 46,
+            "destination": 108
+        },
+        {
+            "source": 203,
+            "destination": 185
+        },
+        {
+            "source": 98,
+            "destination": 182
+        },
+        {
+            "source": 464,
+            "destination": 385
+        },
+        {
+            "source": 134,
+            "destination": 58
+        },
+        {
+            "source": 290,
+            "destination": 19
+        },
+        {
+            "source": 11,
+            "destination": 204
+        },
+        {
+            "source": 20,
+            "destination": 297
+        },
+        {
+            "source": 464,
+            "destination": 10
+        },
+        {
+            "source": 98,
+            "destination": 370
+        },
+        {
+            "source": 339,
+            "destination": 166
+        },
+        {
+            "source": 98,
+            "destination": 310
+        },
+        {
+            "source": 46,
+            "destination": 64
+        },
+        {
+            "source": 328,
+            "destination": 70
+        },
+        {
+            "source": 306,
+            "destination": 87
+        },
+        {
+            "source": 290,
+            "destination": 480
+        },
+        {
+            "source": 328,
+            "destination": 43
+        },
+        {
+            "source": 20,
+            "destination": 361
+        },
+        {
+            "source": 46,
+            "destination": 447
+        },
+        {
+            "source": 98,
+            "destination": 156
+        },
+        {
+            "source": 134,
+            "destination": 384
+        },
+        {
+            "source": 46,
+            "destination": 51
+        },
+        {
+            "source": 98,
+            "destination": 181
+        },
+        {
+            "source": 403,
+            "destination": 452
+        },
+        {
+            "source": 271,
+            "destination": 395
+        },
+        {
+            "source": 133,
+            "destination": 31
+        },
+        {
+            "source": 203,
+            "destination": 20
+        },
+        {
+            "source": 46,
+            "destination": 209
+        },
+        {
+            "source": 328,
+            "destination": 476
+        },
+        {
+            "source": 333,
+            "destination": 353
+        },
+        {
+            "source": 328,
+            "destination": 237
+        },
+        {
+            "source": 133,
+            "destination": 500
+        },
+        {
+            "source": 328,
+            "destination": 132
+        },
+        {
+            "source": 20,
+            "destination": 127
+        },
+        {
+            "source": 290,
+            "destination": 366
+        },
+        {
+            "source": 98,
+            "destination": 396
+        },
+        {
+            "source": 464,
+            "destination": 300
+        },
+        {
+            "source": 98,
+            "destination": 187
+        },
+        {
+            "source": 133,
+            "destination": 172
+        },
+        {
+            "source": 20,
+            "destination": 322
+        },
+        {
+            "source": 403,
+            "destination": 264
+        },
+        {
+            "source": 290,
+            "destination": 191
+        },
+        {
+            "source": 328,
+            "destination": 90
+        },
+        {
+            "source": 333,
+            "destination": 117
+        },
+        {
+            "source": 306,
+            "destination": 232
+        },
+        {
+            "source": 290,
+            "destination": 95
+        },
+        {
+            "source": 464,
+            "destination": 171
+        },
+        {
+            "source": 339,
+            "destination": 480
+        },
+        {
+            "source": 306,
+            "destination": 188
+        },
+        {
+            "source": 339,
+            "destination": 490
+        },
+        {
+            "source": 98,
+            "destination": 257
+        },
+        {
+            "source": 203,
+            "destination": 197
+        },
+        {
+            "source": 133,
+            "destination": 249
+        },
+        {
+            "source": 306,
+            "destination": 35
+        },
+        {
+            "source": 290,
+            "destination": 64
+        },
+        {
+            "source": 290,
+            "destination": 14
+        },
+        {
+            "source": 203,
+            "destination": 399
+        },
+        {
+            "source": 290,
+            "destination": 297
+        },
+        {
+            "source": 133,
+            "destination": 300
+        },
+        {
+            "source": 339,
+            "destination": 134
+        },
+        {
+            "source": 290,
+            "destination": 376
+        },
+        {
+            "source": 98,
+            "destination": 103
+        },
+        {
+            "source": 134,
+            "destination": 233
+        },
+        {
+            "source": 339,
+            "destination": 384
+        },
+        {
+            "source": 403,
+            "destination": 481
+        },
+        {
+            "source": 20,
+            "destination": 440
+        },
+        {
+            "source": 464,
+            "destination": 473
+        },
+        {
+            "source": 403,
+            "destination": 292
+        },
+        {
+            "source": 403,
+            "destination": 106
+        },
+        {
+            "source": 203,
+            "destination": 393
+        },
+        {
+            "source": 328,
+            "destination": 116
+        },
+        {
+            "source": 339,
+            "destination": 253
+        },
+        {
+            "source": 333,
+            "destination": 494
+        },
+        {
+            "source": 46,
+            "destination": 306
+        },
+        {
+            "source": 328,
+            "destination": 111
+        },
+        {
+            "source": 328,
+            "destination": 157
+        },
+        {
+            "source": 464,
+            "destination": 225
+        },
+        {
+            "source": 11,
+            "destination": 441
+        },
+        {
+            "source": 464,
+            "destination": 25
+        },
+        {
+            "source": 20,
+            "destination": 418
+        },
+        {
+            "source": 271,
+            "destination": 156
+        },
+        {
+            "source": 333,
+            "destination": 116
+        },
+        {
+            "source": 46,
+            "destination": 53
+        },
+        {
+            "source": 134,
+            "destination": 495
+        },
+        {
+            "source": 98,
+            "destination": 193
+        },
+        {
+            "source": 339,
+            "destination": 378
+        },
+        {
+            "source": 46,
+            "destination": 163
+        },
+        {
+            "source": 11,
+            "destination": 190
+        },
+        {
+            "source": 403,
+            "destination": 154
+        },
+        {
+            "source": 328,
+            "destination": 496
+        },
+        {
+            "source": 306,
+            "destination": 477
+        },
+        {
+            "source": 306,
+            "destination": 284
+        },
+        {
+            "source": 290,
+            "destination": 11
+        },
+        {
+            "source": 271,
+            "destination": 331
+        },
+        {
+            "source": 134,
+            "destination": 47
+        },
+        {
+            "source": 333,
+            "destination": 185
+        },
+        {
+            "source": 133,
+            "destination": 390
+        },
+        {
+            "source": 328,
+            "destination": 36
+        },
+        {
+            "source": 133,
+            "destination": 4
+        },
+        {
+            "source": 20,
+            "destination": 408
+        },
+        {
+            "source": 328,
+            "destination": 386
+        },
+        {
+            "source": 403,
+            "destination": 310
+        },
+        {
+            "source": 339,
+            "destination": 214
+        },
+        {
+            "source": 290,
+            "destination": 307
+        },
+        {
+            "source": 20,
+            "destination": 313
+        },
+        {
+            "source": 11,
+            "destination": 238
+        },
+        {
+            "source": 333,
+            "destination": 112
+        },
+        {
+            "source": 271,
+            "destination": 455
+        },
+        {
+            "source": 306,
+            "destination": 329
+        }
+    ]
+}

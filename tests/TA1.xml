@@ -1,0 +1,138 @@
+<graph>
+    <node id="1">
+        <lat>45.3847954211651</lat>
+        <lon>-75.69117289340868</lon>
+    </node>
+    <node id="2">
+        <lat>45.39736598042561</lat>
+        <lon>-75.70760853270808</lon>
+    </node>
+    <node id="3">
+        <lat>45.374342851806325</lat>
+        <lon>-75.71761917901841</lon>
+    </node>
+    <node id="4">
+        <lat>45.387991287883075</lat>
+        <lon>-75.71472861880481</lon>
+    </node>
+    <node id="5">
+        <lat>45.38144233747773</lat>
+        <lon>-75.7039502940329</lon>
+    </node>
+    <node id="6">
+        <lat>45.397307507370776</lat>
+        <lon>-75.7133260443232</lon>
+    </node>
+    <node id="7">
+        <lat>45.38860645741772</lat>
+        <lon>-75.69490146992409</lon>
+    </node>
+    <node id="8">
+        <lat>45.37585066172498</lat>
+        <lon>-75.70385327771562</lon>
+    </node>
+    <node id="9">
+        <lat>45.376838179580616</lat>
+        <lon>-75.69348316119364</lon>
+    </node>
+    <node id="10">
+        <lat>45.37802691873176</lat>
+        <lon>-75.71993979575483</lon>
+    </node>
+    <node id="11">
+        <lat>45.39409451328018</lat>
+        <lon>-75.70255255539344</lon>
+    </node>
+    <node id="12">
+        <lat>45.37350684412663</lat>
+        <lon>-75.708362376614</lon>
+    </node>
+    <node id="13">
+        <lat>45.3960255316332</lat>
+        <lon>-75.69501481963019</lon>
+    </node>
+    <node id="14">
+        <lat>45.39038797303895</lat>
+        <lon>-75.71437382966548</lon>
+    </node>
+    <node id="15">
+        <lat>45.37735209801032</lat>
+        <lon>-75.69765504324855</lon>
+    </node>
+    <way id="4525">
+        <node>1</node>
+        <node>8</node>
+    </way>
+    <way id="590">
+        <node>1</node>
+        <node>2</node>
+    </way>
+    <way id="160">
+        <node>1</node>
+        <node>11</node>
+    </way>
+    <way id="1198">
+        <node>2</node>
+        <node>5</node>
+    </way>
+    <way id="9251">
+        <node>2</node>
+        <node>7</node>
+    </way>
+    <way id="817">
+        <node>2</node>
+        <node>9</node>
+    </way>
+    <way id="1548">
+        <node>2</node>
+        <node>11</node>
+    </way>
+    <way id="3694">
+        <node>2</node>
+        <node>14</node>
+    </way>
+    <way id="9098">
+        <node>3</node>
+        <node>6</node>
+    </way>
+    <way id="2533">
+        <node>4</node>
+        <node>8</node>
+    </way>
+    <way id="4753">
+        <node>4</node>
+        <node>15</node>
+    </way>
+    <way id="9404">
+        <node>5</node>
+        <node>10</node>
+    </way>
+    <way id="3252">
+        <node>5</node>
+        <node>11</node>
+    </way>
+    <way id="9604">
+        <node>6</node>
+        <node>14</node>
+    </way>
+    <way id="2178">
+        <node>6</node>
+        <node>7</node>
+    </way>
+    <way id="4291">
+        <node>7</node>
+        <node>13</node>
+    </way>
+    <way id="6206">
+        <node>8</node>
+        <node>14</node>
+    </way>
+    <way id="7442">
+        <node>8</node>
+        <node>10</node>
+    </way>
+    <way id="8678">
+        <node>11</node>
+        <node>12</node>
+    </way>
+</graph>
