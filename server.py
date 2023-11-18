@@ -21,8 +21,7 @@ def upload():
     if file is None:
         return Response(status=400)  # Bad request (no file given)
     
-    
-    
+
 
     
 
