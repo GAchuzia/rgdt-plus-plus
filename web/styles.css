@@ -1,16 +1,18 @@
-*body{
-    background-color: #cd3438;
+body {
+    margin: 0;
+    background: #f0f0f0;
     font-family: serif;
     font-weight: 350;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    overflow: hidden;
 }
 
+.container {
+    margin: 0 auto;
+}
 
 header {
-    border-bottom: 2px solid #1E2F3B;
     background-color: #cd3438;
+
 }
 
 header::after{
@@ -19,9 +21,6 @@ header::after{
     clear:both;
 }
 
-p{
-    color: black;
-}
 nav {
     text-align: center;
 }
@@ -36,21 +35,117 @@ nav li {
     display: inline-block;
     text-align: center;
     margin-left: 40px;
-    padding: 20px;   
+    padding: 20px 0;   
 }
 
 nav ul li a {
-    color: #1E2F3B;
+    color: #f0f0f0;
     font-size: 100%;
     text-decoration:  none;
     text-transform: uppercase;
 }
 
 nav ul li a:hover {
-    color: #f5f2f2;
+    color:black;
 }
 
- 
-.card1 p{
+header nav ul li a {
+    color:#f0f0f0
+}
+
+.card-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Use min-height to ensure it takes up at least the full viewport height */
+  position: relative;
+}
+
+.projects-container{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    min-height: 60vh; /* Use min-height to ensure it takes up at least the full viewport height */
+    position: relative;
+    
+}
+
+.projects-container a{
+    text-decoration: none;
+}
+
+.project1, .project2{
+    font-size: 23px;
+    width: 12em;
+    height: 6em; 
+    border: 2px dashed #2C3147;
+    color: #1E2F3B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 3%;
+    background-color: #cd3438;
+    padding: 5%;
+    margin-right: 20px;
+}
+
+.proj-title{
+    color:#f0f0f0;
+}
+
+.generate-output {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.generate-btn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.generate-btn{
+    font-size: 23px;
+    color:#f0f0f0;
+    border: solid #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%;
+    background-color: #cd3438;
+    padding: 2%;
+    margin-right: 20px;
+}
+.github-link-card{
+    display: flex;
+    flex-direction: row-reverse;
+    min-height: 80vh; 
+    position: relative;
+    margin-right: 2%;
+}
+
+.github-link-card a{
+    text-decoration: none;
+    color: #f0f0f0;;
+}
+
+.link-card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.link-card{
+    font-size: 15px;
+    width: 6em;
+    height: 2em; 
+    background-color: #cd3438;
+    border: 2px solid #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%;
+
 }
