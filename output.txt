@@ -1,0 +1,6 @@
+Bot 0: 
+	 Total Running Time: 18.33 
+	 Number of Deliveries: 5 
+	 Total Distance Travelled: 333.09Summary: 
+	 Total Distance: 333.09, 
+	 Total End Time: 2023-11-19 01:00:00

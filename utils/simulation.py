@@ -155,10 +155,11 @@ class Bot:
     capacity: int
     carrying: list[Package]
     accumulated_cost: float
+    num_deliveries: int 
 
     @classmethod
     def from_json(cls, data: JSON) -> Self:
-        return cls(location=data["location"], capacity=data["capacity"], carrying=[], accumulated_cost=0)
+        return cls(location=data["location"], capacity=data["capacity"], carrying=[], accumulated_cost=0, num_deliveries=0)
 
     def calculate_destination(self, scenario: Scenario) -> int:
         """
@@ -171,6 +172,7 @@ class Bot:
             if pkg.destination == self.location:
                 pkg.delivered()
                 self.carrying.remove(pkg)
+                self.num_deliveries+=1
                 self.accumulated_cost += DELIVERY_TIME
 
         # Pick up any packages at the current node
