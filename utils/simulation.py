@@ -284,7 +284,7 @@ class Scenario:
     def complete(self) -> bool:
         """Returns true when all packages are delivered."""
         delivered_status = [pkg.state == PackageState.DELIVERED for pkg in self.packages]
-        print(f"Packages remaining {len(self.packages) - sum(delivered_status)}")
+        #print(f"Packages remaining {len(self.packages) - sum(delivered_status)}")
         return all(delivered_status)
 
 
