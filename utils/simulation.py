@@ -1,9 +1,10 @@
 from dataclasses import dataclass, field
-from typing import Self, TypeAlias, Any
+from typing import Self, TypeAlias, Any, Optional
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
 import math
 import json
+import heapq
 from enum import Enum, auto
 
 JSON: TypeAlias = dict[str, Any]
@@ -54,6 +55,11 @@ class Bot:
     @classmethod
     def from_json(cls, data: JSON) -> Self:
         return cls(location=data["location"], capacity=data["capacity"], carrying=[], accumulated_cost=0)
+
+    def pick_package(packages: list[Package]) -> int:
+        """Returns the node to travel to for collecting package."""
+
+        # Picking a package closest to the bot
 
 
 @dataclass
@@ -144,3 +150,47 @@ def haversine_dist(n1: Node, n2: Node) -> float:
     seconds2 = math.sin((math.radians(n2.long) - math.radians(n1.long)) / 2) ** 2
     cosproduct = math.cos(math.radians(n1.lat)) * math.cos(math.radians(n2.lat))
     return 2 * EARTH_RADIUS * math.asin(math.sqrt(firsts2 + cosproduct * seconds2))
+
+
+@dataclass
+class DjikstraNode:
+    ref: Node
+    distance: float = float("inf")
+    finished: bool = False
+    parent: Optional[Self] = None
+
+
+def dijkstra(graph: dict[int, Node], source: Node) -> dict[int, DjikstraNode]:
+    """
+    Djikstra's algorithm.
+    https://builtin.com/software-engineering-perspectives/dijkstras-algorithm
+    """
+    nodes: dict[int, DjikstraNode] = {}
+    for node in graph.values():
+        nodes[node.id] = DjikstraNode(ref=node)
+
+    nodes[source.id].distance = 0
+    queue: list[tuple[float, DjikstraNode]] = [(0, DjikstraNode(ref=source))]  # priority queue
+
+    while queue:
+        d, node = heapq.heappop(queue)
+        if nodes[node.ref.id].finished:
+            continue
+        nodes[node.ref.id].finished = True
+
+        for way in graph[node.ref.id].ways:
+            if way.nodes[0] == node.ref.id:
+                neighbor = way.nodes[1]
+            else:
+                neighbor = way.nodes[0]
+
+            if nodes[neighbor].finished:
+                continue
+
+            new_d = d + haversine_dist(node.ref, graph[neighbor])
+
+            if new_d < nodes[neighbor].distance:
+                nodes[neighbor].distance = new_d
+                nodes[neighbor].parent = node
+                heapq.heappush(queue, (new_d, neighbor))
+    return nodes
