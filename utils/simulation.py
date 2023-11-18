@@ -138,7 +138,7 @@ def dijkstra(graph: dict[int, Node], source: Node) -> dict[int, DijkstraNode]:
             if nodes[neighbor].finished:
                 continue
 
-            new_d = d + haversine_dist(node.ref, graph[neighbor]) * BOT_SPEED
+            new_d = d + haversine_dist(node.ref, graph[neighbor]) * (1 / BOT_SPEED)
 
             if new_d < nodes[neighbor].distance:
                 nodes[neighbor].distance = new_d
@@ -251,7 +251,7 @@ class Scenario:
             way = Way.from_xml(w)
             n1, n2 = way.nodes
             node1, node2 = nodes[n1], nodes[n2]
-            way.cost = haversine_dist(node1, node2)
+            way.cost = haversine_dist(node1, node2) * (1 / BOT_SPEED)
             node1.add_way(way)
             node2.add_way(way)
 

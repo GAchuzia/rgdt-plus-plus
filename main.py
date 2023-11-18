@@ -15,6 +15,9 @@ def main():
             for bot in scenario.bots:
                 destination_node = bot.calculate_destination(scenario)
                 bot.step_towards(destination_node, scenario)
+        print("Simulation complete.")
+        for bot in scenario.bots:
+            print(bot.accumulated_cost)
 
 
 if __name__ == "__main__":
