@@ -1,12 +1,92 @@
 *body{
-    background: #db0975;
+    background: #ffff;
     font-family: serif;
     font-weight: 350;
-    margin: 0; 
     height: 100vh;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+
+header {
+    border-bottom: 2px solid #1E2F3B;
+    background-color: #cd3438;
+}
+
+header::after{
+    content: '';
+    display: table;
+    clear:both;
+}
+
+p{
+    color: black;
+}
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {  
+    display: inline-block;
+    text-align: center;
+    margin-left: 40px;
+    padding: 20px 0;   
+}
+
+nav ul li a {
+    color: #1E2F3B;
+    font-size: 100%;
+    text-decoration:  none;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: #f5f2f2;
+}
+
+.card-container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    position: relative;
+}
+.card-container2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card3:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.card1, .card2{
+    font-size: 23px;
+    width: 12em;
+    height: 6em; 
+    background-color: #f0f0f0;
+    border: 3px dashed #2C3147;
+    color: #1E2F3B;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 1%;
+    background-color: #cd3438;
+    padding: 2%;
+    margin-right: 20px;
+}
+ 
+.card1 p{
+    justify-content: center;
+}
