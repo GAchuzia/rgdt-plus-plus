@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 from flask_cors import CORS
 import os
 
-PORT: int = 8080
+PORT: int = 80
 UPLOAD_FOLDER: str = "./tests"
 ALLOWED_EXTENSIONS: list[str] = ["xml", "json"]
 app = Flask(__name__, template_folder="web", static_folder="web")

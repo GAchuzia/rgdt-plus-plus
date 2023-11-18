@@ -4,6 +4,7 @@ import datetime
 
 
 def print_output(scenario: Scenario) -> None:
+    """Prints the output text file required by the competition rules."""
     t1 = datetime.datetime(year=2023, month=11, day=18, hour=7, minute=0, second=0)
     outputFile = open("output.txt", "w+")
     i = 0
@@ -36,6 +37,7 @@ def main():
         while not scenario.complete():
             for bot in scenario.bots:
                 destination_node = bot.calculate_destination(scenario)
+                print(destination_node)
                 bot.step_towards(destination_node, scenario)
 
         print_output(scenario)
