@@ -13,8 +13,15 @@ Introducing *ReallyGoodDeliveryTechnologies Ltd*'s blazingly fast delivery syste
 
 ## Requirements
 
-- Flask API is used to link the backend to the frontend
-- This program also includes files such as .xml and .json
+- Python 3.10+
+- Modules in `requirements.txt`
+
+## Usage (in Terminal)
+
+- Run the command `py main.py term ./tests/TA1`
+  - **Note**: JSON and XML tests must have the same name
+- An `output.txt` file is generated, containing each bots:
+  - Total running time/distance travelled/end time and the number of deliveries
 
 ## Tools & Technologies
 
