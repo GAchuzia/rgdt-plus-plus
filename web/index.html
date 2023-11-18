@@ -21,15 +21,17 @@
     </header>
 
     <div class="card-container1">
-        <a href=""></a>
-        <div class="card1">
-            <p><input type="file" name="BotFile" accept=".json" value="Upload Bot File" id="upload-bot">Upload Bot File</p>
+
+        <div id="drop_zone1" ondrop="dropHandler(event);">
+            <p>Upload Bot Files</p>
         </div>
-        
         <a href=""></a>
-        <div class="card2">
-            <p><input type="file" name="GraphFile" accept=".xml" value="Upload Graph File">Upload Graph File</p>
+
+        <div id="drop_zone2" ondrop="dropHandler(event);">
+            <p>Upload Graph Files</p>
         </div>
+        <a href=""></a>
+       
 
     </div>
     <div class="card-container2">
