@@ -1,5 +1,7 @@
 # RGDT++
 
+<img src="web\logo.png" alt="drawing" style="width:300px;"/>
+
 C-ENG-C 2023 Programming competition.  
 Introducing *ReallyGoodDeliveryTechnologies Ltd* blazingly fast delivery system software.
 
