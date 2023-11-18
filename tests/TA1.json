@@ -1,0 +1,30 @@
+{
+    "bots": [
+        {
+            "location": 15,
+            "capacity": 38
+        }
+    ],
+    "packages": [
+        {
+            "source": 4,
+            "destination": 7
+        },
+        {
+            "source": 4,
+            "destination": 6
+        },
+        {
+            "source": 4,
+            "destination": 10
+        },
+        {
+            "source": 4,
+            "destination": 11
+        },
+        {
+            "source": 4,
+            "destination": 9
+        }
+    ]
+}
