@@ -1,5 +1,5 @@
 from utils.args import parser
-from utils.simulation import Scenario, Bot, Package
+from utils.simulation import Scenario
 
 
 def main():
@@ -9,7 +9,7 @@ def main():
 
     # Get scenario
     if args.get("subcmd") == "term":
-        Scenario.from_name(args["scenario"])
+        scenario = Scenario.from_name(args["scenario"])
 
 
 if __name__ == "__main__":
