@@ -5,15 +5,16 @@ from utils.simulation import Scenario
 def main():
     # Parse command line arguments
     args = vars(parser.parse_args())
-    print(args)
 
     # Get scenario
     if args.get("subcmd") == "term":
         scenario = Scenario.from_name(args["scenario"])
 
-    # Main loop
-    for bot in scenario.bots:
-        print(bot)
+        # Main loop
+        while not scenario.complete():
+            for bot in scenario.bots:
+                destination_node = bot.calculate_destination(scenario)
+                bot.step_towards(destination_node, scenario)
 
 
 if __name__ == "__main__":
