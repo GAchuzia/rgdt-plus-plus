@@ -1,17 +1,19 @@
-*body{
-    background: #ffff;
+body {
+    margin: 0;
+    background: #f0f0f0;
     font-family: serif;
     font-weight: 350;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    overflow: hidden;
 }
 
+.container {
+    margin: 0 auto;
+    border-bottom: 2px solid black;
+}
 
 header {
-    border-bottom: 2px solid #1E2F3B;
     background-color: #cd3438;
+
 }
 
 header::after{
@@ -20,11 +22,12 @@ header::after{
     clear:both;
 }
 
-p{
-    color: black;
-}
 nav {
+    
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 nav ul {
@@ -41,52 +44,117 @@ nav li {
 }
 
 nav ul li a {
-    color: #1E2F3B;
+    color: #f0f0f0;
     font-size: 100%;
     text-decoration:  none;
-    text-transform: uppercase;
+    text-transform: uppercase;  
+    margin: 0 -10px;
 }
 
 nav ul li a:hover {
-    color: #f5f2f2;
+    color:black;
 }
 
-.card-container1{
+header nav ul li a {
+    color:#f0f0f0
+}
+
+img{
+    margin-top: 11px;
+}
+.card-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Use min-height to ensure it takes up at least the full viewport height */
+  position: relative;
+}
+
+.projects-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    min-height: 60vh; /* Use min-height to ensure it takes up at least the full viewport height */
     position: relative;
-}
-.card-container2{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    
 }
 
-.card3:hover{
-    transform: scale(1.1);
-    cursor: pointer;
+.projects-container a{
+    text-decoration: none;
 }
-.card1, .card2{
+
+.project1, .project2{
     font-size: 23px;
     width: 12em;
     height: 6em; 
-    background-color: #f0f0f0;
-    border: 3px dashed #2C3147;
+    border: 2px dashed #2C3147;
     color: #1E2F3B;
-
     display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 1%;
+    border-radius: 3%;
+    background-color: #cd3438;
+    padding: 5%;
+    margin-right: 20px;
+}
+
+.proj-title{
+    color:#f0f0f0;
+}
+
+.generate-output {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.generate-btn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.generate-btn{
+    font-size: 23px;
+    color:#f0f0f0;
+    border: solid #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%;
     background-color: #cd3438;
     padding: 2%;
     margin-right: 20px;
 }
- 
-.card1 p{
+.github-link-card{
+    display: flex;
+    flex-direction: row-reverse;
+    min-height: 80vh; 
+    position: relative;
+    margin-right: 2%;
+}
+
+.github-link-card a{
+    text-decoration: none;
+    color: #f0f0f0;;
+}
+
+.link-card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.link-card{
+    font-size: 15px;
+    width: 6em;
+    height: 2em; 
+    background-color: #cd3438;
+    border: 2px solid #f0f0f0;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%;
+
 }
