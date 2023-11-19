@@ -43,16 +43,16 @@ class Package:
     source: int
     destination: int
     state: PackageState
-    claimed: Optional[Bot] = None  # Robot who has claimed this package
+    claimed: Optional[int] = None  # ID of robot who has claimed this package
 
     @classmethod
     def from_json(cls, data: JSON) -> Self:
         return cls(source=data["source"], destination=data["destination"], state=PackageState.UNMOVED)
 
-    def claim(self, robot: Bot) -> None:
+    def claim(self, robot_id: int) -> None:
         """Mark the package as claimed."""
         self.state = PackageState.CLAIMED
-        self.claimed = robot
+        self.claimed = robot_id
 
     def delivered(self) -> None:
         """Mark the package as delivered."""
@@ -156,21 +156,26 @@ def dijkstra(graph: dict[NodeID, Node], source: Node) -> NodeDistances:
 class Bot:
     """Represents a delivery robot who can carry packages."""
 
+    id: int
     location: int
     capacity: int
-    carrying: list[Package]
     accumulated_cost: float
     num_deliveries: int
+    carrying: list[Package] = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, data: JSON) -> Self:
+    def from_json(cls, id: int, data: JSON) -> Self:
         return cls(
+            id=id,
             location=data["location"],
             capacity=data["capacity"],
-            carrying=[],
             accumulated_cost=0,
             num_deliveries=0,
         )
+
+    def has_room(self) -> bool:
+        """Returns true if the robot has room to carry another package."""
+        return len(self.carrying) < self.capacity
 
     def calculate_destination(self, scenario: Scenario) -> int:
         """
@@ -188,9 +193,9 @@ class Bot:
 
         # Pick up any packages at the current node
         for pkg in scenario.packages:
-            if (pkg.state == PackageState.UNMOVED and pkg.source == self.location) or (
-                pkg.state == PackageState.CLAIMED and pkg.claimed == self
-            ):
+            unmoved = pkg.state == PackageState.UNMOVED and pkg.source == self.location
+            self_claimed = pkg.state == PackageState.CLAIMED and pkg.claimed == self.id and pkg.source == self.location
+            if (unmoved or self_claimed) and self.has_room():
                 pkg.state = PackageState.PICKED_UP
                 self.carrying.append(pkg)
 
@@ -202,19 +207,21 @@ class Bot:
 
         candidate: tuple[float, int, Package] = (float("inf"), scenario.packages[0].source, scenario.packages[0])
         for pkg in scenario.packages:
-            # If we have room to take a package, pick up the closest one
-            if pkg.state == PackageState.UNMOVED and len(self.carrying) < self.capacity:
+            # If we have room to take a package or we've claimed it, head to pick up the closest one
+            self_claimed = pkg.state == PackageState.CLAIMED and pkg.claimed == self.id
+            unmoved = pkg.state == PackageState.UNMOVED
+            if (unmoved or self_claimed) and self.has_room():
                 if dists[pkg.source] < candidate[0]:
                     candidate = (dists[pkg.source], pkg.source, pkg)
 
-            # If we're carrying a package, go to the destination that's closest
-            if pkg.state == PackageState.PICKED_UP and pkg in self.carrying:
+            # If we're carrying packages, go to the carried package destination that's closest
+            if pkg in self.carrying:
                 if dists[pkg.destination] < candidate[0]:
-                    candidate = (dists[pkg.source], pkg.destination, pkg)
+                    candidate = (dists[pkg.destination], pkg.destination, pkg)
 
         # Package has been picked
         if candidate[2].state == PackageState.UNMOVED:
-            candidate[2].claim(self)
+            candidate[2].claim(self.id)
         return candidate[1]
 
     def step_towards(self, target_id: int, scenario: Scenario) -> None:
@@ -240,7 +247,6 @@ class Bot:
                 candidate = (distances[adjacent], adjacent, way)
 
         # Found ideal step
-        self.prev_step = self.location
         self.accumulated_cost += candidate[2].cost
         self.location = candidate[1]
 
@@ -282,8 +288,8 @@ class Scenario:
         with open(f"{name}.json", "r") as file:
             data = json.load(file)
 
-            for bot in data["bots"]:
-                bots.append(Bot.from_json(bot))
+            for bot, _id in enumerate(data["bots"]):
+                bots.append(Bot.from_json(bot, _id))
 
             for pkg in data["packages"]:
                 packages.append(Package.from_json(pkg))
