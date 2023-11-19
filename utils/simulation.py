@@ -111,7 +111,7 @@ class DijkstraNode:
     __repr__ = __str__
 
 
-def dijkstra(graph: dict[int, Node], source: Node) -> dict[int, DijkstraNode]:
+def dijkstra(graph: dict[int, Node], source: Node) -> dict[int, float]:
     """
     Djikstra's algorithm.
     https://builtin.com/software-engineering-perspectives/dijkstras-algorithm
@@ -144,7 +144,9 @@ def dijkstra(graph: dict[int, Node], source: Node) -> dict[int, DijkstraNode]:
                 nodes[neighbor].distance = new_d
                 nodes[neighbor].parent = node
                 heapq.heappush(queue, (new_d, nodes[neighbor]))
-    return nodes
+
+    # Only return distances
+    return {k: v.distance for k, v in nodes.items()}
 
 
 @dataclass
@@ -161,8 +163,12 @@ class Bot:
     @classmethod
     def from_json(cls, data: JSON) -> Self:
         return cls(
-            location=data["location"], capacity=data["capacity"], carrying=[], accumulated_cost=0, num_deliveries=0,
-            prev_step=data["location"]
+            location=data["location"],
+            capacity=data["capacity"],
+            carrying=[],
+            accumulated_cost=0,
+            num_deliveries=0,
+            prev_step=data["location"],
         )
 
     def calculate_destination(self, scenario: Scenario) -> int:
@@ -194,13 +200,13 @@ class Bot:
         for pkg in scenario.packages:
             # If we have room to take a package, pick up the closest one
             if pkg.state == PackageState.UNMOVED and len(self.carrying) < self.capacity:
-                if dists[pkg.source].distance < candidate[0]:
-                    candidate = (dists[pkg.source].distance, pkg.source, pkg)
+                if dists[pkg.source] < candidate[0]:
+                    candidate = (dists[pkg.source], pkg.source, pkg)
 
             # If we're carrying a package, go to the destination that's closest
             if pkg.state == PackageState.PICKED_UP and pkg in self.carrying:
-                if dists[pkg.destination].distance < candidate[0]:
-                    candidate = (dists[pkg.source].distance, pkg.destination, pkg)
+                if dists[pkg.destination] < candidate[0]:
+                    candidate = (dists[pkg.source], pkg.destination, pkg)
 
         # Package has been picked
         if candidate[2].state == PackageState.UNMOVED:
@@ -223,8 +229,8 @@ class Bot:
             else:
                 adjacent = way.nodes[0]
 
-            if distances[adjacent].distance < candidate[0] and adjacent != self.prev_step:
-                candidate = (distances[adjacent].distance, adjacent, way)
+            if distances[adjacent] < candidate[0] and adjacent != self.prev_step:
+                candidate = (distances[adjacent], adjacent, way)
 
         # Found ideal step
         self.prev_step = self.location
@@ -266,7 +272,7 @@ class Scenario:
         bots: list[Bot] = []
         packages: list[Package] = []
         with open(f"{name}.json", "r") as file:
-            data = json.load(file)  # type: ignore
+            data = json.load(file)
 
             for bot in data["bots"]:
                 bots.append(Bot.from_json(bot))
@@ -284,7 +290,7 @@ class Scenario:
     def complete(self) -> bool:
         """Returns true when all packages are delivered."""
         delivered_status = [pkg.state == PackageState.DELIVERED for pkg in self.packages]
-        #print(f"Packages remaining {len(self.packages) - sum(delivered_status)}")
+        print(f"Packages remaining {len(self.packages) - sum(delivered_status)}")
         return all(delivered_status)
 
 
