@@ -9,6 +9,9 @@ import heapq
 from enum import Enum, auto
 
 JSON: TypeAlias = dict[str, Any]
+NodeID: TypeAlias = int
+NodeDistances: TypeAlias = dict[NodeID, float]
+
 EARTH_RADIUS: float = 6371  # In km
 BOT_SPEED: float = 40  # kmph
 DELIVERY_TIME: float = 2 / 60  # hours
@@ -111,7 +114,7 @@ class DijkstraNode:
     __repr__ = __str__
 
 
-def dijkstra(graph: dict[int, Node], source: Node) -> dict[int, float]:
+def dijkstra(graph: dict[NodeID, Node], source: Node) -> NodeDistances:
     """
     Djikstra's algorithm.
     https://builtin.com/software-engineering-perspectives/dijkstras-algorithm
@@ -241,9 +244,10 @@ class Scenario:
     """Represents a delivery scenario."""
 
     name: str
-    nodes: dict[int, Node] = field(default_factory=dict)
+    nodes: dict[NodeID, Node] = field(default_factory=dict)
     bots: list[Bot] = field(default_factory=list)
     packages: list[Package] = field(default_factory=list)
+    computed_dists: dict[NodeID, NodeDistances] = field(default_factory=dict)
 
     @classmethod
     def from_name(cls, name: str) -> Self:
