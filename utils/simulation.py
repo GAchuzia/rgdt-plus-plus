@@ -195,7 +195,10 @@ class Bot:
                 self.carrying.append(pkg)
 
         # Picking a package closest to the bot
-        dists = dijkstra(scenario.nodes, scenario.nodes[self.location])
+        dists = scenario.computed_dists.get(self.location)
+        if dists is None:  # Only compute if not computed before
+            dists = dijkstra(scenario.nodes, scenario.nodes[self.location])
+            scenario.computed_dists[self.location] = dists
 
         candidate: tuple[float, int, Package] = (float("inf"), scenario.packages[0].source, scenario.packages[0])
         for pkg in scenario.packages:
@@ -218,7 +221,10 @@ class Bot:
         """Take a step to the next node in the path to the node which is associated with the ID provided."""
 
         # Distances from target to all nodes
-        distances = dijkstra(scenario.nodes, scenario.nodes[target_id])
+        distances = scenario.computed_dists.get(target_id)
+        if distances is None:
+            distances = dijkstra(scenario.nodes, scenario.nodes[target_id])
+            scenario.computed_dists[target_id] = distances
 
         current_node = scenario.nodes[self.location]
         candidate: tuple[float, int, Way] = (float("inf"), self.location, scenario.nodes[self.location].ways[0])
