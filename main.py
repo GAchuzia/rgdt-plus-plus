@@ -6,23 +6,25 @@ import datetime
 def print_output(scenario: Scenario) -> None:
     """Prints the output text file required by the competition rules."""
     t1 = datetime.datetime(year=2023, month=11, day=18, hour=7, minute=0, second=0)
-    outputFile = open("output.txt", "w+")
-    i = 0
-    totalDistance = 0
-    lastDeliveryTime = 0
-    for bot in scenario.bots:
-        botDistance = (bot.accumulated_cost - DELIVERY_TIME * bot.num_deliveries) * BOT_SPEED
-        outputFile.write(
-            f"Bot {i}: \n\t Total Running Time: {bot.accumulated_cost:.2f} \n\t Number of Deliveries: {bot.num_deliveries} \n\t Total Distance Travelled: {botDistance:.2f}\r"
-        )
-        if bot.accumulated_cost > lastDeliveryTime:
-            lastDeliveryTime = bot.accumulated_cost
-        totalDistance += botDistance
+    output_file = open("output.txt", "w+")
+    total_distance = 0
+    last_delivery_time = 0
 
-    outputFile.write(
-        f"Summary: \n\t Total Distance: {totalDistance:.2f}, \n\t Total End Time: {datetime.timedelta(hours=int(lastDeliveryTime))+t1}"
-    )
-    outputFile.close()
+    for bot in scenario.bots:
+        bot_distance = (bot.accumulated_cost - DELIVERY_TIME * bot.num_deliveries) * BOT_SPEED
+        output_file.write(f"Bot {bot.id}: \n")
+        output_file.write(f"\tTotal Running Time: {bot.accumulated_cost:.2f}\n")
+        output_file.write(f"\tNumber of Deliveries: {bot.num_deliveries}\n")
+        output_file.write(f"\tTotal Distance Travelled: {bot_distance:.2f}\n")
+
+        if bot.accumulated_cost > last_delivery_time:
+            last_delivery_time = bot.accumulated_cost
+        total_distance += bot_distance
+
+    output_file.write("Summary:\n")
+    output_file.write(f"\tTotal Distance: {total_distance:.2f}\n")
+    output_file.write(f"\tTotal End Time: {datetime.timedelta(hours=int(last_delivery_time))+t1}")
+    output_file.close()
 
 
 def main():
