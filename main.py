@@ -23,7 +23,7 @@ def print_output(scenario: Scenario) -> None:
 
     output_file.write("Summary:\n")
     output_file.write(f"\tTotal Distance: {total_distance:.2f}\n")
-    output_file.write(f"\tTotal End Time: {datetime.timedelta(hours=int(last_delivery_time))+t1}")
+    output_file.write(f"\tTotal End Time: {datetime.timedelta(hours=int(last_delivery_time))+t1}\n")
     output_file.close()
 
 

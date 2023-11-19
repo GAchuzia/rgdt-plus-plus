@@ -58,6 +58,6 @@ Bot 14:
 	Total Running Time: 102.38
 	Number of Deliveries: 28
 	Total Distance Travelled: 4057.85
-Summary: 
+Summary:
 	Total Distance: 52862.21
 	Total End Time: 2023-11-22 14:00:00
