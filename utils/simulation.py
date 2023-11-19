@@ -158,7 +158,6 @@ class Bot:
     carrying: list[Package]
     accumulated_cost: float
     num_deliveries: int
-    prev_step: int
 
     @classmethod
     def from_json(cls, data: JSON) -> Self:
@@ -168,7 +167,6 @@ class Bot:
             carrying=[],
             accumulated_cost=0,
             num_deliveries=0,
-            prev_step=data["location"],
         )
 
     def calculate_destination(self, scenario: Scenario) -> int:
@@ -229,7 +227,7 @@ class Bot:
             else:
                 adjacent = way.nodes[0]
 
-            if distances[adjacent] < candidate[0] and adjacent != self.prev_step:
+            if distances[adjacent] < candidate[0]:
                 candidate = (distances[adjacent], adjacent, way)
 
         # Found ideal step
